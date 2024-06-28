@@ -1,1 +1,12 @@
-<p>detail works!</p>
+<h2>Olympic games app</h2>
+<hr />
+<div
+    *ngIf="(country$ | async) as country; else dataError"
+>
+        <app-line-chart
+            [country]="country"
+        ></app-line-chart>
+</div>
+<ng-template #dataError>
+    No data available
+</ng-template>
