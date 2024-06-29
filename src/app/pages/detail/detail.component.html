@@ -1,5 +1,6 @@
 <div
     *ngIf="(country$ | async) as country; else dataError"
+    class="page-container"
 >
         <app-chart-legend
             [page]="'detail'"

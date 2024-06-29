@@ -3,6 +3,7 @@
 >
     <div
         *ngIf="countries.length; else dataError"
+        class="page-container"
     >
         <app-chart-legend
             [countries]="countries"

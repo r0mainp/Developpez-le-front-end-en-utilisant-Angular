@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    font-family: Roboto, Helvetica, sans-serif;
+  }
+
+h2{
+    margin: 0;
+}
+.page-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

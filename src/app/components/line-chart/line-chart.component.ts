@@ -13,13 +13,17 @@ export class LineChartComponent implements OnInit{
   @Input() country !: Country;
 
 
-  view: [number, number]= [700, 300];
+  view!: [number, number];
   countryFormattedData!: LineData[];
 
-  constructor(private chartsService: ChartsService){}
+  constructor(private chartsService: ChartsService){
+    this.view = [innerWidth / 1.35, 400];
+  }
 
   ngOnInit(): void {
     this.countryFormattedData = this.chartsService.getLineData(this.country.participations);
   }
-
+  onResize(event: any) {
+    this.view = [event.target.innerWidth / 1.35, 400];
+  }
 }

@@ -1,13 +1,18 @@
-<div>
-    <div>
-        <h2>{{legend.title}}</h2>
+<div class="legend">
+    <div class="legend__header card-layout">
+        <h2 class="legend__header__title">{{legend.title}}</h2>
     </div>
-    <div>
+    <div class="legend__cards">
         <div
             *ngFor="let card of legend.cards"
+            class="legend__cards__card card-layout"
         >
-            <span>{{ card.label }}</span>
-            <span>{{ card.value }}</span>
+            <span
+                class="legend__cards__card__label"
+            >{{ card.label }}</span>
+            <span
+                class="legend__cards__card__value"
+            >{{ card.value }}</span>
         </div>
     </div>
 </div>

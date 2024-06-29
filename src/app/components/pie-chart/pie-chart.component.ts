@@ -13,7 +13,7 @@ export class PieChartComponent implements OnInit{
 
   @Input() countries!: Country[]
 
-  view: [number, number] = [700, 300];
+  view!: [number, number];
 
   formattedData!: PieData[];
 
@@ -21,7 +21,7 @@ export class PieChartComponent implements OnInit{
     private router: Router,
     private chartsService: ChartsService
   ){
-    
+    this.view = [innerWidth / 1.35, 400];
   }
 
   ngOnInit(): void {
@@ -30,5 +30,8 @@ export class PieChartComponent implements OnInit{
 
   redirectToDetails(country: {name: string, value: number, extra: {id: number}}){
     this.router.navigateByUrl(`details/${country.extra.id}`)
+  }
+  onResize(event: any) {
+      this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

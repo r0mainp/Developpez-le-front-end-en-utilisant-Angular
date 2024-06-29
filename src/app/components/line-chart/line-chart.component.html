@@ -7,4 +7,6 @@
     [roundDomains]="true"
     [animations]="true"
     [trimXAxisTicks]="false"
+    [autoScale]="true"
+    (window:resize)="onResize($event)"
 ></ngx-charts-line-chart>
