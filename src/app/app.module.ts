@@ -11,6 +11,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
 import { ChartLegendComponent } from './components/chart-legend/chart-legend.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ChartLegendComponent } from './components/chart-legend/chart-legend.com
     NotFoundComponent, 
     PieChartComponent,
     LineChartComponent,
-    ChartLegendComponent
+    ChartLegendComponent,
+    HeaderComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
   providers: [],
