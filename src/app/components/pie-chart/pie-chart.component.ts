@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Olympic } from 'src/app/core/models/Olympic';
+import { Country } from 'src/app/core/models/Country';
 
 @Component({
   selector: 'app-pie-chart',
@@ -10,7 +9,7 @@ import { Olympic } from 'src/app/core/models/Olympic';
 })
 export class PieChartComponent implements OnInit{
 
-  @Input() olympics!: Olympic[]
+  @Input() countries!: Country[]
 
   view: [number, number] = [700, 300];
 
@@ -30,7 +29,7 @@ export class PieChartComponent implements OnInit{
   }
 
   private formatData(){
-    this.formattedData = this.olympics.map( data => {
+    this.formattedData = this.countries.map( data => {
       const totalMedal = data.participations.reduce((total, participation) => total + participation.medalsCount, 0)
       return {
         name: data.country,

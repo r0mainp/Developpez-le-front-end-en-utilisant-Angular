@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
-import { Olympic } from 'src/app/core/models/Olympic';
-import { OlympicService } from 'src/app/core/services/olympic.service';
+import { Country } from 'src/app/core/models/Country';
+import { CountriesService } from 'src/app/core/services/countries.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,18 +11,18 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 })
 export class DetailComponent implements OnInit{
 
-  country$!: Observable<Olympic>;
+  country$!: Observable<Country>;
 
 
   constructor(
-    private olympicService: OlympicService,
+    private countriesService: CountriesService,
     private route: ActivatedRoute,
   ){}
 
   ngOnInit(): void {
     const countryId = this.route.snapshot.params['id'];
-    this.country$ = this.olympicService.getOlympicsById(parseInt(countryId)).pipe(
-      map(countrys => countrys[0])
+    this.country$ = this.countriesService.getCountryById(parseInt(countryId)).pipe(
+      map(countries => countries[0])
     )
   }
 }

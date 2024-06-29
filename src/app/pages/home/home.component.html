@@ -1,13 +1,13 @@
 <h2>Olympic games app</h2>
 <hr />
 <div
-    *ngIf="(olympics$ | async) as olympics; else fetchError"
+    *ngIf="(countries$ | async) as countries; else fetchError"
 >
     <div
-        *ngIf="olympics.length; else dataError"
+        *ngIf="countries.length; else dataError"
     >
         <app-pie-chart
-            [olympics]="olympics"
+            [countries]="countries"
         ></app-pie-chart>
     </div>
 </div>

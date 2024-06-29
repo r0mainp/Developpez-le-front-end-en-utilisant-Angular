@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs';
-import { OlympicService } from './core/services/olympic.service';
+import { CountriesService } from './core/services/countries.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,9 @@ import { OlympicService } from './core/services/olympic.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private olympicService: OlympicService) {}
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.olympicService.loadInitialData().pipe(take(1)).subscribe();
+    this.countriesService.loadInitialData().pipe(take(1)).subscribe();
   }
 }

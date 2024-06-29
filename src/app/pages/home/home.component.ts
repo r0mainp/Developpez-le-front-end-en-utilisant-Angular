@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Olympic } from 'src/app/core/models/Olympic';
-import { OlympicService } from 'src/app/core/services/olympic.service';
+import { Country } from 'src/app/core/models/Country';
+import { CountriesService } from 'src/app/core/services/countries.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +9,11 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public olympics$: Observable<Olympic[]> = of([]);
+  public countries$: Observable<Country[]> = of([]);
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
+    this.countries$ = this.countriesService.getCountries();
   }
 }

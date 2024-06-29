@@ -2,37 +2,37 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Olympic } from '../models/Olympic';
+import { Country } from '../models/Country';
 
 @Injectable({
   providedIn: 'root',
 })
-export class OlympicService {
+export class CountriesService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<Olympic[]>([]);
+  private countries$ = new BehaviorSubject<Country[]>([]);
 
   constructor(private http: HttpClient) {}
 
   loadInitialData() {
-    return this.http.get<Olympic[]>(this.olympicUrl).pipe(
-      tap((value) => this.olympics$.next(value)),
+    return this.http.get<Country[]>(this.olympicUrl).pipe(
+      tap((value) => this.countries$.next(value)),
       catchError((error) => {
         // TODO: improve error handling
         console.error('Error while loading data', error.message);
         // can be useful to end loading state and let the user know something went wrong
-        this.olympics$.next([]);
+        this.countries$.next([]);
         return of([]);
       })
     );
   }
 
-  getOlympics() {
-    return this.olympics$.asObservable();
+  getCountries() {
+    return this.countries$.asObservable();
   }
-  getOlympicsById(id: number){
-    return this.olympics$.pipe(
+  getCountryById(id: number){
+    return this.countries$.pipe(
       // TODO: find a way to use find() and return an Olympic
-      map(olympics => olympics.filter(olympic => olympic.id === id))
+      map(countries => countries.filter(country => country.id === id))
     )
   }
 }
