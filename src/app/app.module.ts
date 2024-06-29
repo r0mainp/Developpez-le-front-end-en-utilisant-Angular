@@ -10,6 +10,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { LineChartComponent } from './components/line-chart/line-chart.component';
+import { ChartLegendComponent } from './components/chart-legend/chart-legend.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LineChartComponent } from './components/line-chart/line-chart.component
     DetailComponent, 
     NotFoundComponent, 
     PieChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    ChartLegendComponent
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
   providers: [],

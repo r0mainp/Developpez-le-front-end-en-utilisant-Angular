@@ -1,0 +1,13 @@
+<div>
+    <div>
+        <h2>{{legend.title}}</h2>
+    </div>
+    <div>
+        <div
+            *ngFor="let card of legend.cards"
+        >
+            <span>{{ card.label }}</span>
+            <span>{{ card.value }}</span>
+        </div>
+    </div>
+</div>

@@ -6,6 +6,9 @@
     <div
         *ngIf="countries.length; else dataError"
     >
+        <app-chart-legend
+            [countries]="countries"
+        ></app-chart-legend>
         <app-pie-chart
             [countries]="countries"
         ></app-pie-chart>
