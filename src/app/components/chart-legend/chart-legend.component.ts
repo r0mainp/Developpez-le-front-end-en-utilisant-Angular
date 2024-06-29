@@ -10,12 +10,20 @@ import { ChartsService } from 'src/app/core/services/charts.service';
 })
 export class ChartLegendComponent implements OnInit{
   @Input() countries !: Country[];
+  @Input() country !: Country;
+  @Input() page: 'home' | 'detail' = 'home';
 
-  legend !: Legend;
+  legend!: Legend;
 
   constructor(private chartsService: ChartsService){}
 
   ngOnInit(): void {
-      this.legend = this.chartsService.getPieChartLegendData(this.countries)
+    this.legend = this.initLegend(this.page)
+  }
+
+  private initLegend(page: 'home' | 'detail'): Legend {
+    return page === 'home'?
+      this.chartsService.getHomeChartLegendData(this.countries):
+      this.chartsService.getDetailChartLegendData(this.country)
   }
 }

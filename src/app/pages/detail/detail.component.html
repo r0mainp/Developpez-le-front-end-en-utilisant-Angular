@@ -3,6 +3,10 @@
 <div
     *ngIf="(country$ | async) as country; else dataError"
 >
+        <app-chart-legend
+            [page]="'detail'"
+            [country]="country"
+        ></app-chart-legend>
         <app-line-chart
             [country]="country"
         ></app-line-chart>

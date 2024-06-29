@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Country } from 'src/app/core/models/Country';
 import { LineData } from 'src/app/core/models/LineData';
 import { ChartsService } from 'src/app/core/services/charts.service';
@@ -19,7 +19,7 @@ export class LineChartComponent implements OnInit{
   constructor(private chartsService: ChartsService){}
 
   ngOnInit(): void {
-    this.countryFormattedData = this.chartsService. getLineData(this.country.participations);
+    this.countryFormattedData = this.chartsService.getLineData(this.country.participations);
   }
 
 }
