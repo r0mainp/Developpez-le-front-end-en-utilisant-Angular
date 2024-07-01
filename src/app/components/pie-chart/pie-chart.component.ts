@@ -28,7 +28,12 @@ export class PieChartComponent implements OnInit{
     this.formattedData = this.chartsService.getPieData(this.countries)
   }
 
-  redirectToDetails(country: {name: string, value: number, extra: {id: number}}){
+  /**
+   * Trigger navigation to the details page using a country's id
+   * 
+   * @param {PieData} country - The pie data of a specific country
+   */
+  redirectToDetails(country: PieData){
     this.router.navigateByUrl(`details/${country.extra.id}`)
   }
   onResize(event: any) {
