@@ -12,6 +12,12 @@ import { Legend } from "../models/Legend";
 
 export class ChartsService {
 
+    /**
+     * Returns legend data for the home chart (pie chart)
+     * 
+     * @param countries  - An array of all Countries
+     * @returns Countries data as Legend
+     */
     getHomeChartLegendData(countries: Country[]): Legend{
         const uniqueParticipations = new Set(
             countries.flatMap(country => country.participations)
@@ -32,7 +38,12 @@ export class ChartsService {
             ]
         }
     }
-
+    /**
+     * Returns an array of PieData from countries to be consumed by ngx-chart PieChart component
+     * 
+     * @param countries  - An array of all Countries
+     * @returns Countries data as an array of PieData
+     */
     getPieData(countries: Country[]): PieData[]{
         return countries.map( data => {
             const totalMedal = this.getTotalMedalsCount(data.participations)
@@ -46,6 +57,12 @@ export class ChartsService {
         })
     }
 
+    /**
+     * Returns legend data for the detail chart (line chart)
+     * 
+     * @param country  - A Country
+     * @returns Country data as Legend
+     */
     getDetailChartLegendData(country: Country): Legend{
         return {
             title: country.country,
@@ -66,6 +83,12 @@ export class ChartsService {
         }
     }
 
+    /**
+     * Returns an array of LineData from participations to be consumed by ngx-chart LineChart component
+     * 
+     * @param participations  - An array a country's Participations
+     * @returns Participations data as an array of LineData
+     */
     getLineData(participations: Participation[]): LineData[]{
         const series = participations.map(participation => {
             return {
@@ -81,9 +104,22 @@ export class ChartsService {
         return data
     }
 
+    /**
+     * Returns the total medals count of a country
+     * 
+     * @param participations  - An array a country's Participations
+     * @returns The addition of each participation's medalsCount
+     */
     private getTotalMedalsCount(participations: Participation[]): number {
         return participations.reduce((total, participation) => total + participation.medalsCount, 0)
     }
+
+    /**
+     * Returns the total athlete count of a country
+     * 
+     * @param participations  - An array a country's Participations
+     * @returns The addition of each participation's athleteCount
+     */
     private getTotalAthletesCount(participations: Participation[]): number {
         return participations.reduce((total, participation) => total + participation.athleteCount, 0)
     }
