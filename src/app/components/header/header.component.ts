@@ -15,7 +15,6 @@ export class HeaderComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
-    // TODO: Question: Est-ce que c'est pertinent ?
       this.router.events.subscribe(event => {
         if(event instanceof NavigationEnd){
           this.showBackButton =  event.urlAfterRedirects !== '/';
