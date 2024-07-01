@@ -27,8 +27,8 @@ export class CountriesService {
    * Fetches initial data from the Olympic API endpoint and updates the `countries$` BehaviorSubject.
    *
    * It uses an HTTP GET request to retrieve an array of `Country` from `olympicUrl`.
-   * On success the data is added to the `countries$` BehaviorSubject.
-   * If an error is catched, the error is logged and an empty array is added countries$,
+   * On success the data is added to countries$.
+   * If an error is catched, the error is logged and an empty array is added to countries$,
    * and an observable of an empty array is returned to handle the error in the component template.
    *
    * @returns {Observable<Country[]>} An observable that emits the fetched `Country` array or an empty.
