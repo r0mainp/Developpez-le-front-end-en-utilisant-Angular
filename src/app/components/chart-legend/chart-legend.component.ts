@@ -21,6 +21,12 @@ export class ChartLegendComponent implements OnInit{
     this.legend = this.initLegend(this.page)
   }
 
+  /**
+   * Returns the Legend data base on the current page.
+   * 
+   * @param {string} page - Current page, can be either 'home' or 'detail'.
+   * @returns {Legend} return Legend data.
+   */
   private initLegend(page: 'home' | 'detail'): Legend {
     return page === 'home'?
       this.chartsService.getHomeChartLegendData(this.countries):
