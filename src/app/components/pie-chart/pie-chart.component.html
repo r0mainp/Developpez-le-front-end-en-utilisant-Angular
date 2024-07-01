@@ -6,4 +6,18 @@
     [trimLabels]="false"
     (select)="redirectToDetails($event)"
     (window:resize)="onResize($event)"
-></ngx-charts-pie-chart>
+>
+    <ng-template 
+        #tooltipTemplate 
+        let-model="model"
+    >
+        <div class="pie-tooltip">
+            <span class="name">{{model.name}}</span>
+            <span class="value">
+                <i class="fas fa-medal"></i>
+                {{model.value}}
+            </span>
+        </div>
+    </ng-template>
+</ngx-charts-pie-chart>
+
